@@ -19,12 +19,17 @@ const Content = styled("div")`
   align-items: center;
 
   ${props =>
-    props.visible &&
-    css`
-      height: ${props.height}px;
-      opacity: 1;
-      transition: height 2s ease-out, opacity 4s ease-out;
-    `}
+    props.visible
+      ? css`
+          height: ${props.height}px;
+          opacity: 1;
+          transition: height 0.1s ease-out, opacity 1s ease-out;
+        `
+      : css`
+          height: 0;
+          opacity: 0;
+          transition: height 0.1s ease-out, opacity 1s ease-out;
+        `}
 `;
 
 const ToggleView = ({ height, children }) => {
